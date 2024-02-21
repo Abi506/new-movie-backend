@@ -29,10 +29,10 @@ const databaseAndServerInitialization = async () => {
 databaseAndServerInitialization();
 
 app.post("/upload-movies/", async (request, response) => {
-    const { id, url, movieName, cast } = request.body;
+    const {  url, movieName, cast } = request.body;
     const uploadMoviesQuery = `
-        INSERT INTO movies(id,url,movieName,cast)
-        VALUES('${id}','${url}','${movieName}','${cast}')
+        INSERT INTO movies(url,movieName,cast)
+        VALUES('${url}','${movieName}','${cast}')
     `;
     try {
         const uploadMovies = await data.run(uploadMoviesQuery);
