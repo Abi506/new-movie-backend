@@ -32,12 +32,16 @@ app.post("/upload-movies/", async (request, response) => {
     const {  url, movieName, cast } = request.body;
     const uploadMoviesQuery = `
         INSERT INTO movies(url,movieName,cast)
-        VALUES('${url}','${movieName}','${cast}')
+        VALUES(
+            '${url}',
+            '${movieName}',
+            '${cast}'
+        )
     `;
     try {
         const uploadMovies = await data.run(uploadMoviesQuery);
         console.log(uploadMovies);
-        response.send("Movie uploaded successfully");
+        response.send({message:"Movie uploaded successfully"});
     } catch (error) {
         console.error("Error uploading movie:", error);
         response.status(500).send("Internal Server Error");
@@ -57,8 +61,8 @@ app.get("/movies/", async (request, response) => {
 });
 
 app.delete("/movies/:id", async (request, response) => {
-    const id = request.params.id;
-    const deleteMovieQuery = `DELETE FROM movies WHERE id = '${id}'`;
+    const temp = request.body;
+    const deleteMovieQuery = `DELETE FROM movies WHERE movieName LIKE ? `;
     try {
         const deleteArray = await data.run(deleteMovieQuery);
         console.log(deleteArray);

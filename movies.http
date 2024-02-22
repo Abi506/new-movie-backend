@@ -2,7 +2,7 @@
 POST http://localhost:3001/upload-movies/
 Content-Type: application/json
 
-{
+{    
     "url":"https://vidsrc.to/embed/movie/387886",
     "movieName":"Canola",
     "cast":"kim go eun"
@@ -16,5 +16,5 @@ DELETE http://localhost:3001/movies/
 Content-Type: application/json
 
 {
-    "id":1
+ "movieName":"undefined"   
 }
