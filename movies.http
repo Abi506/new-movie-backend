@@ -3,9 +3,9 @@ POST http://localhost:3001/upload-movies/
 Content-Type: application/json
 
 {    
-    "url":"https://vidsrc.to/embed/movie/387886",
-    "movieName":"Canola",
-    "cast":"kim go eun"
+    "url":"https://vidsrc.to/embed/movie/tt0245574",
+    "movieName":"And your mother too (2001)",
+    "cast":"unknown old actress"
 }
 
 ###
